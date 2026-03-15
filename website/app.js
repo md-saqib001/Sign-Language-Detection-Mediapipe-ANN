@@ -32,7 +32,7 @@ let animationId = null;
 let sequence = [];
 let currentWord = "";
 let consecutiveFrames = 0;
-const REQUIRED_FRAMES = 15;
+const REQUIRED_FRAMES = 30; // Increased to 30 for better stability, adjust as needed
 const CONFIDENCE_THRESHOLD = 60;
 
 let isTranslating = false;
