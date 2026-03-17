@@ -254,7 +254,7 @@ async function processFrame() {
 function updateUI() {
     if (sequence.length === 0) {
         sequenceDisplay.textContent = "Waiting for signs...";
-        sentenceDisplay.textContent = 'Press "Translate with AI" to form a sentence.';
+        sentenceDisplay.textContent = 'Press "Translate" to form a sentence.';
     } else {
         sequenceDisplay.textContent = sequence.map((s) => s.toUpperCase()).join("  \u2192  ");
     }
@@ -288,7 +288,7 @@ async function translateWithGemini() {
             throw new Error(data?.error || `Server returned ${response.status}`);
         }
 
-        sentenceDisplay.textContent = data.sentence || "No response from AI.";
+        sentenceDisplay.textContent = data.sentence || "No response";
     } catch (e) {
         console.error("Translation error:", e);
         sentenceDisplay.textContent = `Error: ${e.message}`;
@@ -296,7 +296,7 @@ async function translateWithGemini() {
         isTranslating = false;
         translateBtn.disabled = false;
         translateBtn.classList.remove("translating");
-        translateBtn.textContent = "Translate with AI";
+        translateBtn.textContent = "Translate";
     }
 }
 
